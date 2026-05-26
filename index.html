@@ -1,0 +1,298 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Ghana Marketplace Hub</title>
+  <meta name="description" content="A simple digital marketplace for Ghanaian sellers to list products, connect with buyers, and grow online." />
+  <link rel="stylesheet" href="src/styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <div>
+      <p class="eyebrow">Digital marketplace for everyday sellers</p>
+      <h1>Ghana Marketplace Hub</h1>
+      <p class="hero-copy">A simple, low-friction online shop for sellers who want to list products, receive enquiries, and reach buyers without heavy platform restrictions.</p>
+    </div>
+    <div class="hero-actions">
+      <a href="#seller-onboarding" class="btn btn-primary">Start selling</a>
+      <a href="#products" class="btn btn-secondary">Browse products</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="stats-grid">
+      <article>
+        <strong id="sellerCount">0</strong>
+        <span>Sellers onboarded</span>
+      </article>
+      <article>
+        <strong id="productCount">0</strong>
+        <span>Products listed</span>
+      </article>
+      <article>
+        <strong id="cityCount">0</strong>
+        <span>Active locations</span>
+      </article>
+      <article>
+        <strong>GH₵</strong>
+        <span>Simple pricing, no heavy fees</span>
+      </article>
+    </section>
+
+    <section class="info-strip">
+      <div>
+        <h2>Why sellers choose this marketplace</h2>
+        <ul>
+          <li>Fast onboarding with just a few details.</li>
+          <li>Easy product listing for food, fashion, farm goods, crafts, and more.</li>
+          <li>Support for WhatsApp-friendly contacts and local delivery info.</li>
+        </ul>
+      </div>
+      <div class="steps-card">
+        <h3>How it works</h3>
+        <ol>
+          <li>Create your seller profile.</li>
+          <li>Add your products with price and delivery details.</li>
+          <li>Buyers browse and reach you directly.</li>
+        </ol>
+      </div>
+    </section>
+
+    <section id="seller-onboarding" class="two-column-layout">
+      <div class="panel">
+        <h2>Seller onboarding</h2>
+        <p>Set up your shop in under a minute. Keep your details short and buyer-friendly.</p>
+        <form id="sellerForm">
+          <label>
+            Full name
+            <input type="text" name="sellerName" placeholder="E.g. Ama Kofi" required>
+          </label>
+          <label>
+            Business name
+            <input type="text" name="businessName" placeholder="E.g. Amina Fresh Market" required>
+          </label>
+          <label>
+            City / town
+            <input type="text" name="city" placeholder="Accra, Kumasi, Tamale" required>
+          </label>
+          <label>
+            Category
+            <select name="category" required>
+              <option value="Food & Groceries">Food & Groceries</option>
+              <option value="Fashion & Accessories">Fashion & Accessories</option>
+              <option value="Agriculture">Agriculture</option>
+              <option value="Health & Beauty">Health & Beauty</option>
+              <option value="Crafts & Home">Crafts & Home</option>
+              <option value="Services">Services</option>
+            </select>
+          </label>
+          <label>
+            WhatsApp / phone
+            <input type="text" name="contact" placeholder="0244 000 000" required>
+          </label>
+          <label>
+            Seller profile image URL (optional)
+            <input type="url" name="sellerImageUrl" placeholder="https://example.com/avatar.jpg">
+          </label>
+          <div class="media-upload-row single-upload">
+            <label>
+              Upload profile image
+              <input type="file" name="sellerImageFile" accept="image/*">
+            </label>
+          </div>
+          <label>
+            Seller badge
+            <select name="sellerBadge">
+              <option value="">No badge</option>
+              <option value="Verified seller">Verified seller</option>
+              <option value="Fast delivery">Fast delivery</option>
+              <option value="Trusted local">Trusted local</option>
+              <option value="New seller">New seller</option>
+            </select>
+          </label>
+          <label>
+            Short bio
+            <textarea name="bio" rows="3" placeholder="Tell buyers why they should shop with you." required></textarea>
+          </label>
+          <button type="submit" class="btn btn-primary">Save seller profile</button>
+        </form>
+      </div>
+
+      <div class="panel">
+        <h2>Add a product</h2>
+        <p>List new products with clear prices, locations, and delivery notes.</p>
+        <form id="productForm">
+          <label>
+            Seller
+            <select name="sellerId" id="sellerSelect" required></select>
+          </label>
+          <label>
+            Product name
+            <input type="text" name="title" placeholder="Fresh coconuts, handwoven basket" required>
+          </label>
+          <label>
+            Category
+            <select name="category" required>
+              <option value="Food & Groceries">Food & Groceries</option>
+              <option value="Fashion & Accessories">Fashion & Accessories</option>
+              <option value="Agriculture">Agriculture</option>
+              <option value="Health & Beauty">Health & Beauty</option>
+              <option value="Crafts & Home">Crafts & Home</option>
+              <option value="Services">Services</option>
+            </select>
+          </label>
+          <label>
+            Price (GH₵)
+            <input type="number" name="price" min="1" step="0.01" placeholder="80" required>
+          </label>
+          <label>
+            Location
+            <input type="text" name="location" placeholder="Madina, Accra" required>
+          </label>
+          <label>
+            Delivery / pickup
+            <input type="text" name="delivery" placeholder="Doorstep delivery, pickup at market" required>
+          </label>
+          <label>
+            Image URL (optional)
+            <input type="url" name="imageUrl" placeholder="https://example.com/product.jpg">
+          </label>
+          <label>
+            Short video URL (optional)
+            <input type="url" name="videoUrl" placeholder="https://example.com/product.mp4">
+          </label>
+          <label>
+            Gallery URLs (optional)
+            <textarea name="galleryUrls" rows="3" placeholder="Add extra image or video URLs, separated by commas."></textarea>
+          </label>
+          <div class="media-upload-row">
+            <label>
+              Upload image
+              <input type="file" name="imageFile" accept="image/*">
+            </label>
+            <label>
+              Upload video
+              <input type="file" name="videoFile" accept="video/*">
+            </label>
+          </div>
+          <div id="mediaPreview" class="media-preview">
+            <p class="form-note">Preview will appear here as you add your image or video URL.</p>
+          </div>
+          <p class="form-note">Add a product image or a short video link, upload a file directly, or add extra gallery URLs.</p>
+          <label>
+            Product description
+            <textarea name="description" rows="3" placeholder="Describe quality, quantity, and any special note." required></textarea>
+          </label>
+          <button type="submit" class="btn btn-primary">Publish product</button>
+        </form>
+      </div>
+
+      <div class="panel">
+        <h2>Buyer reviews</h2>
+        <p>Share a quick review after a purchase so other buyers can trust the seller and product.</p>
+        <form id="reviewForm">
+          <label>
+            Product
+            <select name="productId" id="reviewProductSelect" required></select>
+          </label>
+          <label>
+            Your name
+            <input type="text" name="customerName" placeholder="E.g. Ama Kofi" required>
+          </label>
+          <label>
+            Rating
+            <select name="rating" required>
+              <option value="5">5 stars</option>
+              <option value="4">4 stars</option>
+              <option value="3">3 stars</option>
+              <option value="2">2 stars</option>
+              <option value="1">1 star</option>
+            </select>
+          </label>
+          <label>
+            Review comment
+            <textarea name="comment" rows="3" placeholder="Tell buyers about quality, delivery, and shopping experience." required></textarea>
+          </label>
+          <button type="submit" class="btn btn-primary">Post review</button>
+        </form>
+      </div>
+    </section>
+
+    <section class="catalog-section">
+      <div class="panel">
+        <p class="eyebrow">Order management</p>
+        <h2>Track and update customer orders</h2>
+        <p>Use this panel to keep buyers informed as orders move from pending to delivery.</p>
+        <div id="orderManagementList" class="order-management-list"></div>
+      </div>
+    </section>
+
+    <section id="products" class="catalog-section">
+      <div class="catalog-header">
+        <div>
+          <p class="eyebrow">Marketplace catalog</p>
+          <h2>Browse products from local sellers</h2>
+        </div>
+        <div class="filters">
+          <input type="search" id="searchInput" placeholder="Search products or sellers" aria-label="Search products">
+          <select id="categoryFilter">
+            <option value="all">All categories</option>
+            <option value="Food & Groceries">Food & Groceries</option>
+            <option value="Fashion & Accessories">Fashion & Accessories</option>
+            <option value="Agriculture">Agriculture</option>
+            <option value="Health & Beauty">Health & Beauty</option>
+            <option value="Crafts & Home">Crafts & Home</option>
+            <option value="Services">Services</option>
+          </select>
+          <select id="locationFilter">
+            <option value="all">All locations</option>
+          </select>
+        </div>
+      </div>
+      <div id="productGrid" class="product-grid"></div>
+    </section>
+  </main>
+
+  <div id="toast" class="toast" aria-live="polite"></div>
+
+  <div id="orderModal" class="modal hidden" aria-hidden="true">
+    <div class="modal-card">
+      <div class="modal-header">
+        <div>
+          <p class="eyebrow">Order request</p>
+          <h2 id="orderModalTitle">Request this product</h2>
+        </div>
+        <button type="button" id="closeOrderModal" class="icon-button" aria-label="Close order form">×</button>
+      </div>
+      <p id="orderModalCopy" class="form-note"></p>
+      <form id="orderForm">
+        <input type="hidden" name="productId" id="orderProductId">
+        <input type="hidden" name="sellerId" id="orderSellerId">
+        <label>
+          Your name
+          <input type="text" name="customerName" placeholder="E.g. Kofi Mensah" required>
+        </label>
+        <label>
+          Phone number
+          <input type="text" name="customerPhone" placeholder="0244 000 000" required>
+        </label>
+        <label>
+          Quantity
+          <input type="number" name="quantity" min="1" value="1" required>
+        </label>
+        <label>
+          Additional notes
+          <textarea name="notes" rows="3" placeholder="Tell the seller when you want delivery, size, or any other detail."></textarea>
+        </label>
+        <div class="modal-actions">
+          <button type="button" id="cancelOrderModal" class="btn btn-secondary">Cancel</button>
+          <button type="submit" class="btn btn-primary">Send request</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script src="src/main.js"></script>
+</body>
+</html>
